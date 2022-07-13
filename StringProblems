@@ -1,0 +1,82 @@
+//#Problem 1
+//String - Sorting
+/**
+ * Sort given string and print the output as string. 
+ * 
+ * Output:  
+ * acdez
+ */
+
+fun main() {
+	val inputString = "cdeaz"
+    val sortedString = inputString.toCharArray().sorted()
+    println(sortedString.toCharArray())  //acdez
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+//#Problem 2
+//String - Substring and Character Location
+/**
+ * Print the index of k
+ * Print the index of i from back
+ * Extract "arth" and print
+ * Print the indices for the string.
+ * Expected Output:  
+ * 0
+ * 1
+ * art
+ * 0..6
+ */
+
+fun main() {
+	val inputString = "karthik"
+    println(inputString.indexOf('k'))
+    println(inputString.reversed().indexOf('i'))
+    println(inputString.substring(1,4))
+    println(inputString.indices)
+}
+-------------------------------------------------------------------------------------------------------------------------------------------
+//#Problem 3
+//String - Iterating character
+/**
+ * Iterate over string and print character by character.
+ * 
+ * Output:
+ * k
+ * a
+ * r
+ * t
+ * h
+ * i
+ * k
+ * 
+ */
+
+fun main() {
+	val inputString = "karthik"
+    for(ch:Char in inputString){
+        println(ch)
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------
+//#Problem 4
+//Iterating character in string with index
+/**
+ * Iterate over string and print character along with its index.
+ * 
+ * Output:
+ * 0 - k
+ * 1 - a
+ * 2 - r
+ * 3 - t
+ * 4 - h
+ * 5 - i
+ * 6 - k
+ * 
+ */
+
+fun main() {
+	val inputString = "karthik"
+    for(i in inputString.indices){
+        println("$i - ${inputString[i]}")
+    }
+}
