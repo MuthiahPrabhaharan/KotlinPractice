@@ -1,0 +1,155 @@
+//#Problem 1
+//Map Basics
+/**
+ * Create map with string and int. 
+ * 
+ * Add karthik 2
+ * Add srikanth 5
+ * Add revathy 7
+ * Print map
+ * 
+ * Remove entry karthik
+ * print map
+ * 
+ * Retrive and print the key for revathy
+ * 
+ * Retrive and print the element at location 1
+ * 
+ * Clear the entire map. 
+ * 
+ * Print the size of the map. 
+ * 
+ * Output:  
+ * 
+ * Revathy - 7
+ * Karthik - 2
+ * Srikanth - 5
+ * ***
+ * Revathy - 7
+ * Srikanth - 5
+ * 7
+ * Srikanth
+ * 0
+ *
+ * 
+ */
+
+fun main() { 
+	val map =  hashMapOf<String,Int>()
+    // Add code
+    map.put("Karthik",2)
+    map.put("Srikanth",5)
+    map.put("Revathy",7)
+    for((k,v) in map){
+        println("$k - $v")
+    }
+    println("***")
+    map.remove("Karthik")
+    for((k,v) in map){
+        println("$k - $v")
+    }
+    println(map.get("Revathy"))
+    println(map.keys.elementAt(1))
+    map.clear()
+    println(map.size)
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+//#Problem 2
+//Map Iteration and Filtering
+/**
+ * 
+ * Iterate and print all the keys
+ * 
+ * Iterate and print all the values
+ * 
+ * Filter by Keys
+ * 
+ * Filter by Values
+ *
+ * 
+ * Output:  
+ *
+ * Revathy
+ * Karthik
+ * Srikanth
+ * ***
+ * 7
+ * 2
+ * 5
+ * *** Filter By Keys ***
+ * {Karthik=2}
+ * *** Filter By Value ***
+ * {Revathy=7, Srikanth=5}
+ *
+ *
+ */
+
+fun main() {
+	val nameMap = hashMapOf<String, Int>()
+    nameMap.put("Karthik", 2)
+    nameMap.put("Srikanth", 5)
+    nameMap.put("Revathy", 7)
+    
+    // Code
+    for(key in nameMap.keys){
+        println("$key")
+    }
+    
+    println("***")
+
+    // Code
+    for(value in nameMap.values){
+        println("$value")
+    }
+    
+    println("*** Filter By Keys ***")
+    
+    val filterByKeys = nameMap.filterKeys{it.startsWith("K")} 
+    println(filterByKeys)
+    
+    println("*** Filter By Value ***")
+    val filterByValue = nameMap.filterValues{it > 2}
+    println(filterByValue)   
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+//#Problem 3
+//Map Sorting
+/**
+ * 
+ * Sort the map by keys and print
+ * 
+ * Sort the map by values and print
+ * 
+ * Reverse the map ( sortedValueMap ) and print
+ * 
+ * Output:  
+ *
+ * [Anand=7, Baskar=2, Chris=5]
+ * [Baskar=2, Chris=5, Anand=7]
+ * [Anand=7, Chris=5, Baskar=2]
+ *
+ *
+ */
+
+fun main() {
+	val nameMap = hashMapOf<String, Int>()
+    nameMap.put("Anand", 7)
+    nameMap.put("Chris", 5)
+    nameMap.put("Baskar", 2)
+
+    val sortedMap = nameMap.entries.sortedBy { it.key }
+    println(sortedMap)
+    
+    val sortedValueMap = nameMap.entries.sortedBy { it.value }
+    println(sortedValueMap)
+    
+    println(sortedValueMap.reversed())
+    
+    /** Other methods to sort by key **/
+    /*
+     nameMap.toSortedMap()
+     nameMap.toSortedMap(reverOrder()) // Reverse sorting
+     nameMap.toSortedMap(compareBy{it}) // sort by key
+     nameMap.toSortedMap(compareByDescending{it}) reverse sort
+     */
+}
